@@ -1,0 +1,15 @@
+1. What is SQL?
+
+=> SQL stands for the Structured Query Language.
+   Standardised by ANSI and ISO in the late 1980s, SQL is used across various systems. 
+   'SQL was originally known as SEQUEL.'
+   "SEQUEL stands for Structured English Query Language."
+
+   SQL (Structured Query Language) is the standard programming language used to interact with a relational database management system (RDBMS).
+
+   Purpose-: As a declarative language, SQL allows users to define what data to access or modify, while the system manages how to perform the task.
+
+2. What is a Database?
+
+=> A database is an organized collection of structured information, or data, typically stored electronically in a computer system.
+   
