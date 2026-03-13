@@ -1,0 +1,59 @@
+What is a Procedure?
+A procedure is a saved set of SQL instructions that performs one or more actions when called.
+
+Key Points to Remember
+1. It is Permanently Saved
+  Once created, it stays in the database forever
+  Closing the app or restarting does NOT delete it
+  Only deleted when you manually drop it
+
+2. It Lives in One Database
+  Created in Database A → only works in Database A
+  To use in another database → recreate it there or call with full name
+
+3. It Runs Only When Called
+  Does nothing on its own
+  Only executes when you call EXEC procedure_name
+
+4. It Can Perform Multiple Operations
+  INSERT, UPDATE, DELETE, SELECT all in one procedure
+  No limit on how many operations
+  Runs top to bottom in order
+
+5. It Can Handle Errors
+  Has TRY...CATCH block to handle errors gracefully
+
+6. It Can Control Transactions
+  Can COMMIT or ROLLBACK operations
+
+
+What Operations Can It Do?
+  Operations -: Insert Data, Update Data, Delete Data, Select Data, Error Handling, Transaction Control, Create/Drop Tables.
+
+Basic Syntax -:
+  -- Create
+  CREATE PROCEDURE procedure_name
+  AS BEGIN
+    -- your operations here
+  END;
+
+  -- Call
+  EXEC procedure_name;
+
+  -- Delete
+  DROP PROCEDURE procedure_name;
+
+
+Golden Rules-:
+   Procedure = Performs Actions
+   Runs only when EXEC is called
+   Saved permanently in the database
+   Belongs to one database
+   Can do unlimited operations
+   Only disappears when you delete it
+
+Real Life Analogy-:
+  1. A Servant - Runs Only When You Tell
+  2. A Cookbook Recipe - Permanently Saved, Reuse Anytime
+  3. A Morning Routine - Multiple Tasks in One Go
+  4. A Company Employee - Only Works in the Company it Belongs to
