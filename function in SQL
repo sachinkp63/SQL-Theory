@@ -1,1 +1,49 @@
+1. What are the functions in SQL?
+
+  A function is a saved SQL code that always returns a value when called.
+  Real Life Example:-
+  Think of a Function like a Calculator
+  You give it numbers → it gives you back a result
+  You press 10 + 5 → Calculator gives you 15  
+  You don't tell the calculator to "go do something" — you just want an answer back.
+
+  Functions are of two types:
+
+  1. User-Defined Functions
+  2. Built-in Functions
+
+  1. User-Defined Functions:- Functions that YOU create according to your need
+    Like a custom calculator you build yourself for your specific work
+  This is two Types:-
+    1. Scalar Function:- Returns a single value
+      Syntax:-
+      -- Create
+      CREATE FUNCTION function_name(@parameter DATATYPE)
+      RETURNS DATATYPE
+      AS
+      BEGIN
+          RETURN value
+      END;
+      -- Call
+      SELECT dbo.function_name(value);
+    2. Tabular Function:- Returns a full table
+      Syntax:-
+      -- Create
+      CREATE FUNCTION function_name(@parameter DATATYPE)
+      RETURNS TABLE
+      AS
+      RETURN
+      (
+          SELECT * FROM table_name WHERE condition
+      );
+      -- Call
+      SELECT * FROM dbo.function_name(value);
+
+  2. Built-In Functions:- Functions already available in SQL — no need to create
+      Like a ready-made calculator already available on your phone.
+      -- Already available, just use it
+        SELECT LEN('Hello');       -- Output: 5
+        SELECT UPPER('hello');     -- Output: HELLO
+        SELECT GETDATE();          -- Output: current date
+        SELECT MAX(salary) FROM employees;
 
