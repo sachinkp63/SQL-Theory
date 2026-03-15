@@ -57,3 +57,61 @@ Real Life Analogy-:
   2. A Cookbook Recipe - Permanently Saved, Reuse Anytime
   3. A Morning Routine - Multiple Tasks in One Go
   4. A Company Employee - Only Works in the Company it Belongs to
+
+
+
+----------- Questions -------------
+Ques 1. Create a procedure that displays all records from a students table.
+-- Procedure Creation
+  delimiter &&
+  create procedure pro1()
+  begin
+  select * from student;
+  end &&
+  delimiter
+-- Procedure call
+  call pro1;
+
+Ques 2. Create a procedure that inserts a new student into the students table.
+-- Procedure Creation
+  delimiter &&
+  create procedure pro2()
+  begin
+  insert into student values (106,"David","Sams","Los"),(107,"Opop","Locs","Capetown");
+  end &&
+  delimiter
+--Procedure call
+  call pro2;
+
+Ques 3. Create a procedure that deletes a student by their ID.
+-- Procedure Creation
+  delimiter &&
+  create procedure pro3()
+  begin
+  delete from student where id = 107;
+  end &&
+  delimiter 
+-- Procedure call
+  call pro3;
+
+Ques 4. Create a procedure that updates the city of a student by their ID.
+-- Procedure Creation
+  delimiter &&
+  create procedure pro4()
+  begin
+  update student set city = "Jhosunberg" where id=104;
+  end &&
+  delimiter
+-- Procedure call
+  call pro4;
+
+Ques 5. Create a procedure that displays all employees whose salary is greater than 50000.
+-- Procedure Creation
+  delimiter &&
+  create procedure pro5()
+  begin
+  select * from employee where salary > 50000;
+  end &&
+  delimiter 
+-- Procedure call
+  call pro5;
