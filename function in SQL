@@ -47,3 +47,73 @@
         SELECT GETDATE();          -- Output: current date
         SELECT MAX(salary) FROM employees;
 
+
+
+============================ Questions =================================
+Ques 1. Create a function that takes a number and returns its square. 
+-- Function Creation
+  delimiter $$
+  create function square_ret(number int)
+  returns int 
+  deterministic 
+  begin
+	  return number*number;
+  end;
+  delimiter;
+-- Call
+  select square_ret(5);
+
+Ques 2. Create a function that takes a name and returns it in UPPERCASE.
+-- Function Creation
+  delimiter $$
+  create function get_upper_case(name varchar(100))
+  returns varchar(100)
+  deterministic
+  begin
+	  return upper(name);
+  end $$
+  delimiter;
+--Call
+  select get_upper_case('sachin');
+
+Ques 3. Create a function that takes price and returns price after 10% discount.
+-- Function Creation
+  delimiter $$
+  create function price_ret(price decimal)
+  returns decimal
+  deterministic
+  begin
+    return price * 0.1;
+  end $$
+  delimiter;
+-- Call
+  select price_ret(1000);
+
+Ques 4. Create a function that takes two numbers and returns their sum.
+-- Function Creation
+  delimiter $$
+  create function sum_two(a int,b int)
+  returns int
+  deterministic
+  begin
+    return a + b;
+  end $$
+  delimiter ;
+-- Call
+  select sum_two(9,4);
+
+Ques 5. Create a function that takes a date and returns only the year from it.
+-- Function Creation
+  delimiter $$
+  create function get_year(d date)
+  returns int
+  deterministic
+  begin
+    return year(d);
+  end $$
+  delimiter ;
+-- Call Function
+  select get_year('2025-04-24');
+
+
+  
