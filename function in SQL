@@ -192,10 +192,9 @@ Ques 7.  Create a function that takes a salary and returns the salary after tax 
 	DELIMITER ;
 -- Call
 	select tax_deduction(45676.89);
-       
 
-
-
+Ques 8. Create a table-valued function that takes a department name and returns all employees of that department.
+In the MySQL table, it can't be return.. 
 
 
 
