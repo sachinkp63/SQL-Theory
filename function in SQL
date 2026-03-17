@@ -48,6 +48,15 @@
         SELECT MAX(salary) FROM employees;
 
 
+NOTES:- How many functions were created?
+	select count(*)
+    from information_schema.routines
+    where routine_type = 'FUNCTION'
+    and routine_schema = 'database_name';
+===================== OR =======================
+	select routine_name, routine_type
+    from information_schema.routines
+    where routine_schema = 'stu';
 
 ============================ Questions =================================
 Ques 1. Create a function that takes a number and returns its square. 
@@ -115,5 +124,82 @@ Ques 5. Create a function that takes a date and returns only the year from it.
 -- Call Function
   select get_year('2025-04-24');
 
+Ques 6. Create a function that takes marks and returns grade.
+	•	Above 90 → A
+	•	Above 60 → B
+	•	Above 40 → C
+	•	Below 40 → Fail	
+-- Function Creation
+	delimiter $$
+	create function get_grade(marks int)
+    returns varchar(10)
+    deterministic
+    begin
+    	declare grade varchar(100);
+    	if marks > 90 then
+            set grade = 'A';
+    	elseif marks > 60 then
+            set grade = 'B';
+    	elseif marks > 40 then
+            set grade = 'C';
+    	else
+            set grade = 'Fail';
+    	end if;
+    	return grade;
+    end $$
+-- Call
+	delimiter;
 
-  
+Ques 7.  Create a function that takes a salary and returns the salary after tax deduction.
+	•	If salary > 50000 → deduct 20% tax
+	•	If salary > 30000 → deduct 10% tax
+	•	Otherwise → no tax
+
+-- Function Creation
+	DELIMITER $$
+	CREATE FUNCTION taxx_deduction(salary DECIMAL(10,2)) 
+	RETURNS DECIMAL(10,2)
+	DETERMINISTIC
+	BEGIN
+    	IF salary > 50000 THEN
+        	RETURN salary - (salary * 0.3);
+    	ELSEIF salary > 30000 THEN
+        	RETURN salary - (salary * 0.15);
+    	ELSE
+        	RETURN salary;
+    	END IF;
+	END $$
+	DELIMITER ;
+-- Call function 
+	select taxx_deduction(45900.99);
+=============== OR ====================
+-- Function Creation
+	DELIMITER $$
+	CREATE FUNCTION tax_deduction(salary DECIMAL(10,2))
+	RETURNS DECIMAL(10,2)
+	DETERMINISTIC
+	BEGIN
+    	DECLARE final_salary DECIMAL(10,2);
+    	IF salary > 50000 THEN
+        	SET final_salary = salary - (salary * 0.20);
+    	ELSEIF salary > 30000 THEN
+        	SET final_salary = salary - (salary * 0.10);
+    	ELSE
+        	SET final_salary = salary;
+    	END IF;
+    	RETURN final_salary;
+	END $$
+	DELIMITER ;
+-- Call
+	select tax_deduction(45676.89);
+       
+
+
+
+
+
+
+
+
+
+
