@@ -115,3 +115,26 @@ Ques 5. Create a procedure that displays all employees whose salary is greater t
   delimiter 
 -- Procedure call
   call pro5;
+
+Ques 6.  Create a procedure that takes a department name as input and shows all employees in that department.
+===========----- without inpu ----=============
+-- Procedure Creation
+  delimiter $$
+  create procedure get_emp_by_deptn()
+  begin
+    select * from emp1 where dept = 'IT';
+  end $$
+  delimiter;
+-- Call
+  call get_emp_by_deptn;
+=========== ------ with input -------========
+-- Procedure Creation
+  delimiter $$
+  create procedure dept_name_emp (in dept_name varchar(20))
+  begin
+    select * from emp1 where dept = dept_name;
+  end$$
+  delimiter;
+-- Call
+  call dept_name_emp('IT');
+
