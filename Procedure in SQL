@@ -138,3 +138,19 @@ Ques 6.  Create a procedure that takes a department name as input and shows all 
 -- Call
   call dept_name_emp('IT');
 
+Ques 7. Create a procedure that gives a salary raise to all employees in a specific department.
+-- Procedure Creation
+  delimiter $$
+  create procedure raise_salary_by_dept(in dept_name varchar(50), in raise_percent decimal(5,2))
+  begin
+    update emp1
+    set salary = salary + (salary * raise_percent/100)
+    where dept = dept_name;
+  end $$
+-- Call
+  call raise_salary_by_dept('hr',50);
+
+Ques 8. Create a procedure that inserts a new order and updates the stock quantity at the same time.
+-- Procedure Creation
+
+
