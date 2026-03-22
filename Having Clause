@@ -1,0 +1,10 @@
+What is a HAVING clause?
+HAVING is used to filter groups after GROUP BY is applied.
+
+Simple Analogy 
+Imagine your teacher groups students by city and counts them:
+Delhi → 5 students
+Mumbai → 2 students
+Chennai → 8 students
+Now teacher says:
+"Show me only cities that have MORE than 4 students"
