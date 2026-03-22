@@ -1,0 +1,48 @@
+GROUP BY -: GROUP BY is a SQL clause used to aggregate rows that share the same values in specified columns into summary rows.
+======================= OR ========================
+One-line definition:
+"Put similar things together, then calculate something about each group"
+
+Basic idea: Instead of returning every individual row, GROUP BY collapses rows with matching values into a single row per group — usually 
+so you can apply aggregate functions like COUNT, SUM, AVG, MIN, or MAX.
+
+Syntax -:
+SELECT column, AGGREGATE_FUNCTION(other_column)
+FROM table
+GROUP BY column;
+
+
+'''''''''
+SELECT column_name, AGGREGATE_FUNCTION(column_name)
+FROM table_name
+WHERE condition
+GROUP BY column_name
+HAVING condition
+ORDER BY column_name;
+```Order of Clauses
+
+Always follow this order 
+```
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+LIMIT  (MySQL specific)
+
+======================== Question =============================
+Ques 1. You have a table of students with their city. How would you count how many students are from each city?
+    select name,count(*)
+    from stw1
+    group by name;
+
+Ques 2. You have a sales table. Write a query to find total sales per product.
+    select name, sum(sales)
+    from sales
+    group by name;
+
+Ques 3. You have an employee table. Find the average salary per department.
+    select name, avg(salary) as sfs
+    from dept
+    group by dept;
