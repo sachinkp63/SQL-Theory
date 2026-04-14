@@ -1,0 +1,30 @@
+Joins:- A relational database consists of multiple related tables linking together using common columns, which are known as foreign key columns. Because of this,
+  data in each table is incomplete from the business perspective.
+A Join is a method of linking data between one(self-join) or more tables based on values of the column between the tables.
+
+Types of JOINS:- 
+  1. Inner Join
+  2. Left Join
+  3. Right Join
+  4. Full Join
+  5. Cross Join
+
+1. Inner Joins-: Inner Join returns records that have matching values in both tables.
+  Syntax:- SELECT col_name FROM table_1 (INNER) JOIN table_2 ON table_1 column_name = table_2.column_name WHERE condition;
+  (JOIN and INNER JOIN are the same, the inner keyword is optional, as all joins are considered to be inner joins unless otherwise specified.)
+
+2. Left Joins-: Left Join or Left Outer Join returns all records from the left table, and the matched records from the right table.
+  The left join selects all data from the left, whether there are matching rows exist in the right table or not. In case there are no matching rows from the right table found, NULLs are used for the columns of the 
+   rows from the right table found, NULLs are used for columns of the row from the right table in the final result set.
+  Syntax:- SELECT col_names FROM table_1 LEFT JOIN table_2 on JOIN condition;
+
+3. Right Joins-: Right Joins or Right Outer Join clauses selects all rows from the right tables and match rows in the left table.
+  If a row from the right table does not have matching rows from the left table, the column of the left table will have NULL in the final result set.
+  Syntax:- SELECT column_names FROM table_1 RIGHT JOIN table_2 ON JOIN condition;
+
+4. Full Joins-: Full Join or Full Outer Join returns all the records which either have a match in either the left or the right table.
+  Syntax:- SELECT col_names FROM table_1 FULL OUTER join table_2 ON table_1.col_name = tablel_2.column_name WHERE condition;
+
+5. Cross Join-: MYSQL Cross Join is used to combine all possibilities of the two or more tables and returns the result that contains every row from all contributing tables.
+  It is also known as CARTESIAN JOIN.
+  Syntax:- SELECT  col_name FROM table_1 CROSS JOIN table_2;
